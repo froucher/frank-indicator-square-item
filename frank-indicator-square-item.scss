@@ -1,0 +1,41 @@
+@import "../cells-sass/main";
+
+:host {
+  //Styling
+  min-height: 300px;
+  max-width: 300px;
+  color: var(--text-primary);
+  background-color: var(--background-primary);
+  border: 2px solid white;
+  @apply(--layout-vertical);
+  @apply(--layout-center);
+  @apply(--layout-center-center);
+}
+
+$font-size: 18px;
+$line-height: 1.4;
+$lines-to-show: 2;
+
+.title {
+  vertical-align: center;
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  max-width: 250px;
+  height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+  margin: 0 auto;
+  font-size: $font-size;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+google-chart {
+	height: 200px;
+	width: 100%;
+}
+
+:host {
+  @apply(--frank-indicator-square-item);
+}

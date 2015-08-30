@@ -1,0 +1,94 @@
+:host {
+  display: block;
+  font-family: var(--fontDefault);
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, dl, dd, ol, ul,
+form, fieldset, legend, figure,
+table, th, td, caption, hr {
+  margin: 0;
+  padding: 0; }
+
+:host:after, :host:before, form:after, form:before,
+article:after,
+article:before, aside:after, aside:before,
+details:after,
+details:before, figcaption:after, figcaption:before,
+figure:after,
+figure:before, footer:after, footer:before,
+header:after,
+header:before, hgroup:after, hgroup:before,
+main:after,
+main:before, nav:after, nav:before,
+section:after,
+section:before, summary:after, summary:before,
+div:after,
+div:before, .clearfix:after, .clearfix:before {
+  content: " ";
+  display: table; }
+:host:after, form:after,
+article:after, aside:after,
+details:after, figcaption:after,
+figure:after, footer:after,
+header:after, hgroup:after,
+main:after, nav:after,
+section:after, summary:after,
+div:after, .clearfix:after {
+  clear: both; }
+
+.ocultar {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.hidden-content > * {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+:host {
+  min-height: 300px;
+  max-width: 300px;
+  color: var(--text-primary);
+  background-color: var(--background-primary);
+  border: 2px solid white;
+  @apply (--layout-vertical);
+  @apply (--layout-center);
+  @apply (--layout-center-center); }
+
+.title {
+  vertical-align: center;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  max-width: 250px;
+  height: 50.4px;
+  /* Fallback for non-webkit */
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.4;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+google-chart {
+  height: 200px;
+  width: 100%; }
+
+:host {
+  @apply (--frank-indicator-square-item); }

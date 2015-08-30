@@ -1,0 +1,46 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+
+<!--
+Chart with historic data of a indicator.
+
+Example:
+
+    <frank-indicator-percent percent='43.21'>
+    </frank-indicator-percent>
+
+@demo
+-->
+
+<dom-module id="frank-indicator-percent">
+  <link rel="import" type="css" href="frank-indicator-percent.css">
+
+  <template>
+    <div class="signPart">{{signPart}}</div>
+    <div class="integerPart">{{integerPart}}</div>
+    <div class="decimalPart">{{decimalPart}}</div>
+    <div class="percentPart">%</div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'frank-indicator-percent',
+
+    properties: {
+      percent: {
+        type: Number,
+        notify: true
+      }
+    },
+
+    ready: function() {
+      this.integerPart = Math.floor(this.percent);
+      this.signPart = this.percent > 0 ? '+' : this.percent < 0 ? '-' : '';
+      var d1 = this.percent % 1;
+      var d2 = Math.round(d1 * 100) / 100;
+      var d3 = d2.toString().substr(1);
+      this.decimalPart = d3;
+    }
+  });
+</script>

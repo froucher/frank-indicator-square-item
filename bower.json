@@ -1,0 +1,17 @@
+{
+  "name": "frank-indicator-square-item",
+  "version": "0.1.0",
+  "dependencies": {
+    "cells-sass": "https://descinet.bbva.es/stash/scm/cel/cells-sass.git",
+    "chart-elements": "robdodson/chart-elements#5149ac2a6a5ddf44d35f0382e72eb1c00bfa64c1",
+    "iron-flex-layout": "polymerelements/iron-flex-layout#^1.0.0",
+    "polymer": "Polymer/polymer#v1.0.0"
+  },
+  "main": "frank-indicator-square-item.html",
+  "resolutions": {
+    "polymer": "^1.0.0"
+  },
+  "devDependencies": {
+    "google-chart": "GoogleWebComponents/google-chart#~1.0.2"
+  }
+}

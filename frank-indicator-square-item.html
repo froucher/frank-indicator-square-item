@@ -1,0 +1,118 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../google-chart/google-chart.html">
+
+<!--
+Details of a indicator. Shows a title, a percent, a charts with
+historic data.
+
+Example:
+
+    <frank-indicator-square-item
+      title='Super Indicator'
+      percent='39.87'
+      data='[41,42,45,43,56,45,48,41,55,44,54,51,34,34,45,46,50]'>
+    </frank-indicator-square-item>
+
+@demo
+-->
+<dom-module id="frank-indicator-square-item">
+	<link rel="import" type="css" href="frank-indicator-square-item.css">
+	<template>
+    <div>
+  		<div class="title">{{title}}</div>
+  		<div>
+        <frank-indicator-percent percent={{percent}}></frank-indicator-percent>
+      </div>
+      <div>
+        <google-chart
+          id="chart"
+          type="line"
+          options="{{options}}"
+          cols="{{cols}}"
+          rows="{{rows}}">
+        </google-chart>
+      </div>
+    </div>
+		<content></content>
+	</template>
+</dom-module>
+
+<script>
+	Polymer({
+
+		is: 'frank-indicator-square-item',
+
+		properties: {
+			/**
+			 * Small description of the indicator. This despcription is displayed
+			 * at the top of the component.
+			 *
+			 * @type string
+			 */
+			title: {
+				type: String,
+				value: 'Super indicator'
+			},
+			/**
+			 * A percent value, shows how has changed a value of a indicator.
+			 *
+			 * @type Number
+			 */
+			percent: {
+				type: Number,
+				value: 39.76,
+			},
+			/**
+			 * The historic with the values of the indicator in the past.
+			 *
+			 * @type Array
+			 */
+			values: {
+				type: Array,
+				value: [1, 2, 3]
+			},
+      options: {
+        type: Object,
+        notify: true
+      },
+      cols: {
+        type: Array,
+        notify: true
+      },
+      rows: {
+        type: Array,
+        notify: true
+      }
+    },
+
+    _values2rows: function() {
+      this.rows = [];
+
+      if(this.values instanceof Array) {
+        var count = this.values.length;
+        for (var i=0; i<count; i++) {
+          this.rows.push(['', this.values[i]]);
+        }
+      }
+    },
+
+    ready: function() {
+      this.options = {
+        legend: 'none',
+        hAxis: {
+          gridlines: {
+            color: 'white'
+          }
+        }
+      };
+      this.cols = [{
+        label: 'Data1',
+        type: 'string'
+      }, {
+        label: 'Value',
+        type: 'number'
+      }];
+      this._values2rows();
+    }
+	});
+</script>

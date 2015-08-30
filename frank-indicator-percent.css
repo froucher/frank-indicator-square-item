@@ -1,0 +1,22 @@
+:host {
+  max-width: 300px;
+  color: var(--GM2_colour);
+  background-color: var(--background-primary);
+  border: 0px solid black;
+  margin: 2px solid white;
+  padding: 2px solid white;
+  @apply (--layout-horizontal);
+  @apply (--layout-center);
+  @apply (--layout-center-center); }
+
+.signPart, .percentPart {
+  @apply (--text-hl-xl); }
+
+.integerPart {
+  font-family: 'HL', Helvetica, Arial, sans-serif;
+  font-size: 9rem; }
+
+.decimalPart {
+  display: none;
+  @apply (--text-hl-s-mini);
+  @apply (--layout-center-center); }
